@@ -12,7 +12,7 @@ public class LinkTextPractice {
         /*
         TC #3: Back and forth navigation
 
-        1. Open a Chrome browser                          */
+        1. Open a Chrome browser                              */
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -22,12 +22,12 @@ public class LinkTextPractice {
 
         /* 3. Click to A/B Testing from top of the list.
         Thread.sleep(2000);
-        driver.findElement(By.linkText("A/B Testing")).click();                  */
+        driver.findElement(By.linkText("A/B Testing")).click(); */
         WebElement abTestLink = driver.findElement(By.linkText("A/B Testing"));
         abTestLink.click();
 
         /* 4. Verify the title.
-              Expected: No A/B Test                        */
+              Expected: No A/B Test                             */
         String expectedTitle = "No A/B Test";
         String actualTitle = driver.getTitle();
 
@@ -41,7 +41,7 @@ public class LinkTextPractice {
         driver.navigate().back();
 
         /* 6. Verify the title.
-              Expected: Practice                            */
+              Expected: Practice                                  */
         expectedTitle= "Practice";
         actualTitle = driver.getTitle();
 
