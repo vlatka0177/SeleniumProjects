@@ -10,7 +10,7 @@ public class LinkTextPractice {
 
     public static void main(String[] args) {
         /*
-        TC #3: Back and forth navigation
+        Task #1: Link Text Practice
 
         1. Open a Chrome browser                              */
         WebDriverManager.chromedriver().setup();

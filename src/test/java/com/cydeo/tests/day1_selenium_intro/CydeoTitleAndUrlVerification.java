@@ -4,9 +4,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CydeoTitleUrlVerification {
+public class CydeoTitleAndUrlVerification {
 
     public static void main(String[] args) {
+
+        // Task #2 Cydeo Title and URL Verification
 
         WebDriverManager.chromedriver().setup();
 

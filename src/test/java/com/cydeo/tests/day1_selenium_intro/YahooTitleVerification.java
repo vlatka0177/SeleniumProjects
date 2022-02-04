@@ -8,7 +8,7 @@ public class YahooTitleVerification {
 
     public static void main(String[] args) {
         /*
-        TC #1: Yahoo Title Verification
+        Task #1: Yahoo Title Verification
 
         Tip: Run your code every few lines
 
