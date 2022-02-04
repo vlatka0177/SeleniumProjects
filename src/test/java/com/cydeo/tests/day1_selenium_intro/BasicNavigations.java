@@ -14,7 +14,7 @@ public class BasicNavigations {
         // 2. Create instance of the Selenium WebDriver. Opens an empty browser.
         WebDriver driver = new ChromeDriver();
 
-        // this line will maximize the browser size
+        // Maximize the browser size
         driver.manage().window().maximize();
 
         //driver.manage().window().fullscreen(); // Another option for Mac only.
