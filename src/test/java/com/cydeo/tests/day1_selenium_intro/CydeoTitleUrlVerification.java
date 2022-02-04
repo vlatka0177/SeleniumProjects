@@ -8,31 +8,33 @@ public class CydeoTitleUrlVerification {
 
     public static void main(String[] args) {
 
-    WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-    WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
-    driver.get("https://practice.cydeo.com");
+        driver.manage().window().maximize();
 
-    String expectedTitle = "practice";
+        driver.get("https://practice.cydeo.com");
+        // driver.navigate().to("https://practice.cydeo.com");
 
-    String actualTitle = driver.getTitle();
+        String expectedUrl = "cydeo";
 
-        if (actualTitle.equals(expectedTitle)){
-            System.out.println("Title is as expected. Verification PASSED.");
-        }else{
-            System.out.println("Title is not as expected. Verification FAILED.");
+        String actualUrl = driver.getCurrentUrl();
 
-            String expectedUrl = "cydeo";
+        if (actualUrl.contains(expectedUrl)) {
+            System.out.println("URL is as expected. URL verification PASSED.");
+        } else {
+            System.out.println("URL is not as expected. URL verification FAILED.");
+        }
 
-            String actualUrl = driver.getCurrentUrl();
+        String expectedTitle = "Practice";
 
-            if (actualUrl.equals(expectedUrl)){
-                System.out.println("Title is as expected. Verification PASSED.");
-            }else{
-                System.out.println("Title is not as expected. Verification FAILED.");
+        String actualTitle = driver.getTitle();
 
-
+        if (actualTitle.contains(expectedTitle)) {
+            System.out.println("Title is as expected. Title verification PASSED.");
+        } else {
+            System.out.println("Title is not as expected. Title verification FAILED.");
         }
     }
 }
