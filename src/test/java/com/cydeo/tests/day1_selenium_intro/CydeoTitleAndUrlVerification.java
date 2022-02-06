@@ -38,5 +38,7 @@ public class CydeoTitleAndUrlVerification {
         } else {
             System.out.println("Title is not as expected. Title verification FAILED.");
         }
+
+        driver.close();
     }
 }

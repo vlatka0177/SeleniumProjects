@@ -50,5 +50,7 @@ public class LinkTextPractice {
         }else{
             System.out.println("Second title verification FAILED.");
         }
+
+        driver.close();
     }
 }

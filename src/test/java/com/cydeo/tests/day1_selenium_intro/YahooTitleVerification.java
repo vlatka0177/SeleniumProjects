@@ -36,5 +36,7 @@ public class YahooTitleVerification {
         }else{
             System.out.println("Title is not as expected. Verification FAILED.");
         }
+
+        driver.close();
     }
 }

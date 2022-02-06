@@ -17,5 +17,4 @@ public class SeleniumTest {
         // 3. Test if driver is working as expected
         driver.get("https://www.google.com");
     }
-
 }
