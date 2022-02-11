@@ -10,7 +10,7 @@ public class GetText_GetAttribute {
 
     public static void main(String[] args) {
 
-         /*  Task #4 getText() and getAttribute() Method Practice
+        /*  Task #4 getText() and getAttribute() Method Practice
 
        1. Open a Chrome browser                              */
         WebDriverManager.chromedriver().setup();
@@ -34,8 +34,11 @@ public class GetText_GetAttribute {
             System.out.println("Header text verification FAILED.");
         }
 
-        // 4. Locate "First name" input box
-        WebElement firstNameInput = driver.findElement(By.name("firstname"));
+        /* 4. Locate "First name" input box
+           Locating the web element using "name" locator
+           Name attribute has "firstname" value
+           WebElement firstNameInput = driver.findElement(By.name("firstname")) */
+        WebElement firstNameInput = driver.findElement(By.className("form-control"));
 
         /* 5. Verify that the placeholder attribute's value is as expected.
            Expected: first name                                          */

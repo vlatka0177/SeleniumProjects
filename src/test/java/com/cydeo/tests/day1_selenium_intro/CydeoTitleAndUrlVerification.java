@@ -8,7 +8,7 @@ public class CydeoTitleAndUrlVerification {
 
     public static void main(String[] args) {
 
-        // Task #2 Cydeo Title and URL Verification
+        // Homework Task #1 Cydeo Title and URL Verification
 
         WebDriverManager.chromedriver().setup();
 
@@ -20,7 +20,6 @@ public class CydeoTitleAndUrlVerification {
         // driver.navigate().to("https://practice.cydeo.com");
 
         String expectedUrl = "cydeo";
-
         String actualUrl = driver.getCurrentUrl();
 
         if (actualUrl.contains(expectedUrl)) {
@@ -30,7 +29,6 @@ public class CydeoTitleAndUrlVerification {
         }
 
         String expectedTitle = "Practice";
-
         String actualTitle = driver.getTitle();
 
         if (actualTitle.contains(expectedTitle)) {

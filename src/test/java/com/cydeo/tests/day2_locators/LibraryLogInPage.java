@@ -30,5 +30,6 @@ public class LibraryLogInPage {
 
         // 5. Click to sign in button
         WebElement signInButton = driver.findElement(By.tagName("button"));
+        signInButton.click();
     }
 }
