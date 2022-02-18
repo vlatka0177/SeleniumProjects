@@ -36,5 +36,20 @@ public class Task4_iFramePractice {
         WebElement yourContentGoesHereText = driver.findElement(By.xpath("//p"));
 
         Assert.assertTrue(yourContentGoesHereText.isDisplayed());
+
+        /* Verify an iFrame containing the TinyMCE WYSIWYG Editor
+        Switch the driver back to 'main HTML'
+        driver.switchTo().parentFrame();
+
+        Option #2: passing index number of iFrame
+        driver.switchTo().frame(0);
+
+        Option #3: locate as web element and pass in frame() method */
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='mce_0_ifr']")));
+
+        WebElement headerText = driver.findElement(By.xpath("//h3"));
+
+        // Assertion whether the header text is displayed or not
+
     }
 }
