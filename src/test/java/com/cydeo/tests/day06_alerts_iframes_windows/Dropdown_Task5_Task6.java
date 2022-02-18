@@ -16,6 +16,7 @@ public class Dropdown_Task5_Task6 {
 
     @BeforeMethod
     public void setupMethod() {
+
        /* 1. Open Chrome browser
           2. Go to https://practice.cydeo.com/dropdown */
         WebDriver driver = WebDriverFactory.getDriver("chrome");

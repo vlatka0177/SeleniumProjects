@@ -5,11 +5,14 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class Task1_AlertPractice {
 
@@ -19,7 +22,6 @@ public class Task1_AlertPractice {
     public void setupMethod(){
 
         // 1. Open browser
-
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -29,14 +31,16 @@ public class Task1_AlertPractice {
     }
 
     @Test
-    public void alert_test1(){
+    public void alert_test1() throws InterruptedException{
+
         // 3. Click to “Click for JS Alert” button
         WebElement informationAlertButton = driver.findElement(By.xpath("//button[.='Click for JS Alert']"));
         // . stands for text
 
         informationAlertButton.click();
+        Thread.sleep(1000);
 
-        // to be able to click to Alert OK button, the driver's focus needs to be switched to Alert itself
+        // To be able to click to Alert OK button, the driver's focus needs to be switched to Alert itself
         Alert alert = driver.switchTo().alert();
 
         // 4. Click to OK button from the alert
@@ -45,13 +49,19 @@ public class Task1_AlertPractice {
         // 5. Verify “You successfully clicked an alert” text is displayed.
         WebElement resultText = driver.findElement(By.xpath("//p[@id='result']"));
 
-        // Failure message will only be displayed if assertionfials: "Result text is NOT displayed."
-        Assert.assertTrue(resultText.isDisplayed(), "Result text is NOT displayed.");
+        // Failure message will only be displayed if assertion fails: "Result text is NOT displayed."
+        assertTrue(resultText.isDisplayed(), "Result text is NOT displayed.");
+        // import static method Assert.assertTrue()
 
-        String expectedText = "you successfully clicked on an alert.";
+        String expectedText = "You successfully clicked an alert";
         String actualText = resultText.getText();
 
-        Assert.assertEquals(actualText, expectedText, "Actual result test is not as expected.");
+        assertEquals(actualText, expectedText, "Actual result test is not as expected.");
+        // Import static method Assert.assertEquals()
+    }
 
+    @AfterMethod
+    public void tearDown() {
+        driver.close();
     }
 }
