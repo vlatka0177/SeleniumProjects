@@ -36,14 +36,17 @@ public class Task1_StaleElementReferenceExceptionHandling {
         deleteButton.click();
 
         /* 6. Verify “Delete” button is NOT displayed after clicking.
-        2.command + option + T to surround with throw/catch to handle StaleElementReferenceException */
+
+        No.2. command + option + T to surround with throw/catch to handle StaleElementReferenceException */
         try {
-            System.out.println("deleteButton.isDisplayed() = " + deleteButton.isDisplayed()); // 1. exception
+            System.out.println("deleteButton.isDisplayed() = " + deleteButton.isDisplayed()); // No.1. exception
         } catch (StaleElementReferenceException e) {
 
             System.out.println("StaleElementReferenceException exception is thrown.");
             System.out.println("The web element is completely deleted from the page.");
             System.out.println("deleteButton.isDisplayed() = false.");
         }
+
+        driver.close();
     }
 }

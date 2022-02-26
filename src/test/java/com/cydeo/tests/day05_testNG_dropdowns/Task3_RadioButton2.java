@@ -12,19 +12,19 @@ public class Task3_RadioButton2 {
 
     public static void main(String[] args) {
 
-        /* Task #3: Radio Button Handling
+        //Task #3: Radiobutton handling
 
-        1. Open Chrome browser */
+        //1. Open Chrome browser
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        // 2. Go to https://practice.cydeo.com/radio_buttons
+        //2. Go to https://practice.cydeo.com/radio_buttons
         driver.get("https://practice.cydeo.com/radio_buttons");
 
-        // 3. Locate name='sports' radio buttons and store them in a List of Web Element
+        //Locate name='sports' radio buttons and store them in a List of Web Element
 
-        clickAndVerifyRadioButton(driver, "sport", "hockey");
+        clickAndVerifyRadioButton(driver, "sport", "hockey" );
 
         clickAndVerifyRadioButton(driver, "sport", "football");
 
@@ -34,16 +34,18 @@ public class Task3_RadioButton2 {
     private static void clickAndVerifyRadioButton(WebDriver driver, String nameAttribute, String idValue){
         List<WebElement> radioButtons = driver.findElements(By.name(nameAttribute));
 
-        // 4. Loop through the List of WebElement and select a result matching "hockey"
+        //Loop through the List of WebElement and select matching result "hockey"
         for (WebElement each : radioButtons) {
             String eachId = each.getAttribute("id");
-            System.out.println("eachId = " + eachId);
 
-            if (eachId.equals(idValue)) {
+            if (eachId.equals(idValue)){
+
                 each.click();
-                System.out.println(eachId +" is selected: " + each.isSelected());
+                System.out.println( eachId + " is selected : " + each.isSelected());
                 break;
             }
         }
+
+        driver.close();
     }
 }

@@ -62,6 +62,7 @@ public class Task1_AlertPractice {
 
     @AfterMethod
     public void tearDown() {
+
         driver.close();
     }
 }

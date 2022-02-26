@@ -32,5 +32,7 @@ public class Task2_RadioButton {
         }else{
             System.out.println("hockey radio button is not selected. Verification FAILED.");
         }
+
+        driver.close();
     }
 }

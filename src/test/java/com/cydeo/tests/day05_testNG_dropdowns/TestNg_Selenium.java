@@ -29,6 +29,7 @@ public class TestNg_Selenium {
 
     @AfterMethod
     public void tearDownMethod(){
+
         driver.close();
     }
 

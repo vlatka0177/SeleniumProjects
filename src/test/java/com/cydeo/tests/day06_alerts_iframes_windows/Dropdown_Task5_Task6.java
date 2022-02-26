@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +20,7 @@ public class Dropdown_Task5_Task6 {
 
        /* 1. Open Chrome browser
           2. Go to https://practice.cydeo.com/dropdown */
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
+        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://practice.cydeo.com/dropdown");
@@ -54,6 +55,7 @@ public class Dropdown_Task5_Task6 {
 
     @Test
     public void dropdown_task6(){
+
         //Select “December 1 , 1923” and verify it is selected.
         Select yearDropdown = new Select(driver.findElement(By.xpath("//select[@id='year']")));
         Select monthDropdown = new Select(driver.findElement(By.xpath("//select[@id='month']")));
@@ -82,5 +84,10 @@ public class Dropdown_Task5_Task6 {
         Assert.assertTrue(actualYear.equals(expectedYear));
         Assert.assertEquals(actualMonth, expectedMonth);
         Assert.assertEquals(actualDay, expectedDay);
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        driver.close();
     }
 }
