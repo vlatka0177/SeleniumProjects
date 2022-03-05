@@ -1,6 +1,7 @@
 package com.cydeo.tests.day08_properties_config_reader;
 
 import com.cydeo.utilities.ConfigurationReader;
+import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -27,19 +28,19 @@ public class ConfigurationPractice {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driver.get("https://www.google.com");
+        Driver.getDriver().get("https://www.google.com");
     }
 
     @Test
     public void testName() {
 
         // 3. Write "apple" in search box
-        WebElement googleSearchBox = driver. findElement(By.xpath("//input[@name='q']"));
+        WebElement googleSearchBox = Driver.getDriver(). findElement(By.xpath("//input[@name='q']"));
         googleSearchBox.sendKeys("apple" + Keys.ENTER);
 
         // Verify title. Expected: apple - Google Search
         String expectedTitle = "apple - Google Search";
-        String actualTitle = driver.getTitle();
+        String actualTitle = Driver.getDriver().getTitle();
 
         assertEquals(actualTitle, expectedTitle);
     }

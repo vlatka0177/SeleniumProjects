@@ -1,10 +1,11 @@
 package com.cydeo.utilities;
 
+import com.cydeo.tests.base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CRM_Utilities {
+public class CRM_Utilities extends TestBase {
 
     // This method will log in with helpdesk1@cybertekschool.com user when it is called
 
