@@ -25,7 +25,8 @@ public class JavaFakerPractice {
         System.out.println("faker.bothify(\"##?#-##?#-#?#?#-##??\") = " + faker.bothify("##?#-##?#-#?#?#-##??"));
 
         System.out.println("faker.finance().creditCard() = " + faker.finance().creditCard().replaceAll("-", ""));
+        // 6007224637046281
 
         System.out.println("faker.chuckNorris().fact() = " + faker.chuckNorris().fact().replaceAll("Chuck Norris", ""));
-    }
+    }   // Knows the last digit of PI
 }

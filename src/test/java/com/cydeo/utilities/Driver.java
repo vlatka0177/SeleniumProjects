@@ -20,7 +20,7 @@ public class Driver {
 
         // Create a reusable utility method that returns the same driver instance when called
 
-        public static WebDriver getDriver(){
+        public static WebDriver getDriver() {
 
             if (driver == null) {
                 /* Browser type is determined from configuration.properties to control which browser is opened from
@@ -28,7 +28,7 @@ public class Driver {
                 String browserType = ConfigurationReader.getProperty("browser");
 
                 // Switch statement
-                switch(browserType){
+                switch (browserType) {
                     case "chrome":
                         WebDriverManager.chromedriver().setup();
                         driver = new ChromeDriver();
@@ -36,14 +36,23 @@ public class Driver {
                         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                         break;
                     case "firefox":
-                        WebDriverManager.chromedriver().setup();
+                        WebDriverManager.firefoxdriver().setup();
                         driver = new FirefoxDriver();
                         driver.manage().window().maximize();
                         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                         break;
                 }
             }
+
             return driver;
         }
-    }
+
+            public static void closeDriver() {
+                if (driver != null) {
+                    driver.quit();
+                    driver = null;
+                }
+            }
+        }
+
 

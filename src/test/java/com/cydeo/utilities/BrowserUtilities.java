@@ -48,7 +48,7 @@ public class BrowserUtilities {
 
     // This method accepts a String "expectedTitle" and Asserts if it is true
 
-    public static void verifyTitle(WebDriver driver ,String expectedTitle){
+    public static void verifyTitle(WebDriver driver, String expectedTitle){
 
         Assert.assertEquals(driver.getTitle(), expectedTitle);
 
