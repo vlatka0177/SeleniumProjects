@@ -2,22 +2,15 @@ package com.cydeo.tests.day08_properties_config_reader;
 
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
-import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
+public class Task4_ConfigurationPractice {
 
-import static org.testng.Assert.assertEquals;
-
-public class ConfigurationPractice {
-
-    public WebDriver driver;
+    /* public WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
@@ -27,25 +20,21 @@ public class ConfigurationPractice {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        Driver.getDriver().get("https://www.google.com");
-    }
+    }                                                  */
 
     @Test
-    public void testName() {
+    public void google_search_test() {
+
+        Driver.getDriver().get("https://www.google.com");
 
         // 3. Write "apple" in search box
         WebElement googleSearchBox = Driver.getDriver(). findElement(By.xpath("//input[@name='q']"));
-        googleSearchBox.sendKeys("apple" + Keys.ENTER);
+        googleSearchBox.sendKeys(ConfigurationReader.getProperty("searchValue") + Keys.ENTER);
 
-        // Verify title. Expected: apple - Google Search
-        String expectedTitle = "apple - Google Search";
+        // 4. Verify title. Expected: apple - Google Search
+        String expectedTitle = ConfigurationReader.getProperty("searchValue") + " - Google Search";
         String actualTitle = Driver.getDriver().getTitle();
 
-        assertEquals(actualTitle, expectedTitle);
-    }
-
-    @AfterMethod
-    public void tearDown() {
+        Assert.assertEquals(actualTitle, expectedTitle);
     }
 }

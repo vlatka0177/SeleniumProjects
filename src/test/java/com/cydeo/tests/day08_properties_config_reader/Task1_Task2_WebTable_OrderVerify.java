@@ -57,12 +57,9 @@ public class Task1_Task2_WebTable_OrderVerify {
 
     @Test
     public void test2() {
-
+        /* Using WebTableUtilities() method from Utilities to returnOrderDate.
+           The method can be used to return other cell data, such as returnPizzaType etc.  */
         String customerOrderDate1 = WebTableUtilities.returnOrderDate(driver,"Alexandra Gray");
-        /* Using WebTableUtilities() method that was created in utilities
-           In addition to returnOrderDate, the method can be used to return other cell data: returnOrderName,
-           returnPizzaType etc.  */
-
         System.out.println("customerOrderDate1 = " + customerOrderDate1);
     }
 

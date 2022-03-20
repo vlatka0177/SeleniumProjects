@@ -16,6 +16,7 @@ public class ReadingProperties {
 
         // 2. Open the file in Java memory: FileInputStream
         FileInputStream file = new FileInputStream("configuration.properties"); // throws FileNotFoundException
+
         /* 1. configuration properties
            2. copy path/reference
            3. Path from content root
